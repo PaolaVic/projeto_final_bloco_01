@@ -1,1 +1,1 @@
-# projeto_final_bloco_01
+Este projeto implementa o Model e Repository para gerenciar um catálogo de Funko Pops, oferecendo operações básicas para manipulação de dados.
