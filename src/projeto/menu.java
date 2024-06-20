@@ -2,12 +2,20 @@ package projeto;
 
 import java.util.Scanner;
 
+import projeto.controller.ProjetoController;
 import projeto.model.FunkoEspecial;
 import projeto.util.cores;
 
 public class menu {
 
 	public static void main(String[] args) {
+
+		ProjetoController repos = new ProjetoController();
+
+		repos.cadastrarProduto(new FunkoEspecial("DONATELLO CLASSICO", "R$215,00", "6 cm", "Plastico", "Herois", "Sem brilho"));
+        repos.cadastrarProduto(new FunkoEspecial("MILES MORALES ", "R$225,00", "6 cm", "Plastico", "Marvel", "Sem brilho"));
+        repos.cadastrarProduto(new FunkoEspecial("STITCH COMO PONGO", "R$115,00", "6 cm", "Plastico", "Disney", "Sem brilho"));
+        repos.cadastrarProduto(new FunkoEspecial("SHAKIRA (SUPER BOWL LIV)", "R$205,00", "6 cm", "Plastico", "Musica", "Sem brilho"));
 		
 		Scanner leia = new Scanner(System.in);
 		int opcao;
@@ -40,24 +48,24 @@ public class menu {
 			switch (opcao) {
 			case 1:
 				System.out.println(cores.TEXT_WHITE_BOLD + "Visualizar Catálogo \n\n");
-	
+				repos.visualizarCatalogo();
 				break;
 			case 2:
 		
 			    System.out.println(cores.TEXT_WHITE_BOLD + "Buscar produto por nome \n\n");
 			    leia.nextLine(); 
 			    String nomeProduto = leia.nextLine(); 
-			 
+			    repos.buscarProdutoPorNome(nomeProduto);
 			    break;
 			case 3:
 				System.out.println(cores.TEXT_WHITE_BOLD + "Comprar produto \n\n");
 			    leia.nextLine(); 
 			    String nomeProdutoCompra = leia.nextLine(); 
-			  
+			    repos.comprarProduto(nomeProdutoCompra);
 			    break;
 			case 4:
 				System.out.println(cores.TEXT_WHITE_BOLD + "Finalizar Compra \n\n");
-			
+				repos.finalizarCompra();
 				break;
 			case 5:
                 System.out.println(cores.TEXT_WHITE_BOLD + "Sair \n\n");
